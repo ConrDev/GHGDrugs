@@ -10,6 +10,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import nl.gewoonhdgaming.commands.CommandCoke;
+
 public class Main extends JavaPlugin {
 		
 		@Override
@@ -19,6 +21,7 @@ public class Main extends JavaPlugin {
 			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.YELLOW + "|       Created by: WTGConner     |");
 			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.YELLOW + "|      Plugin Status:  Enabled    |");
 			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.GOLD + "-----------------------------------");
+			getCommand("coke").setExecutor(new CommandCoke());
 		}
 		
 		@Override
@@ -34,7 +37,7 @@ public class Main extends JavaPlugin {
 	        getConfig().addDefault("key.default", "Dont_Remove_Me!");
 	        saveConfig();
 	        getLogger().info("Configuratie Herladen");
-	        Bukkit.broadcastMessage("De Sexuele Plugin is geladen");
+	        Bukkit.broadcastMessage("De GHGDrugs Plugin is geladen");
 	}
 	    
 	@EventHandler
@@ -45,6 +48,7 @@ public class Main extends JavaPlugin {
 					if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§fCocaïne")) {
 						event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2000, 5));
 						event.getPlayer().setWalkSpeed(0.1F);
+						event.getPlayer().sendMessage(ChatColor.WHITE + "Je hebt zojuist Cocaïne gebruikt! " + ChatColor.RED + "Helaas ben je nu verslaafd.");
 					}
 				}
 			}

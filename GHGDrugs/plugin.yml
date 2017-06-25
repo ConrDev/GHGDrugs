@@ -4,6 +4,6 @@ version: 1.0
 author: [WTGConner]
 website: www.gewoonhdgaming.nl
 commands:
-   sex:
+   coke:
       description: Gebruik dit om cocaïne te krijgen!
       aliases: [coke]
