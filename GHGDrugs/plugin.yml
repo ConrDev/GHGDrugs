@@ -3,3 +3,7 @@ main: nl.gewoonhdgaming.drugs.Main
 version: 1.0
 author: [WTGConner]
 website: www.gewoonhdgaming.nl
+commands:
+   sex:
+      description: Gebruik dit om cocaïne te krijgen!
+      aliases: [coke]
