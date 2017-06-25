@@ -9,18 +9,18 @@ public class Main extends JavaPlugin {
 		@Override
 		public void onEnable() {
 			loadConfiguration();
-			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[Sex] " + ChatColor.GOLD + "-------{De Sexuele Plugin}------");
-			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[Sex] " + ChatColor.YELLOW + "     Created by: WTGConner     ");
-			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[Sex] " + ChatColor.YELLOW + "    Plugin Status: Enabled     ");
-			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[Sex] " + ChatColor.GOLD + "--------------------------------");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.GOLD + "-------{De GHGDrugs Plugin}------");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.YELLOW + "       Created by: WTGConner       ");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.YELLOW + "      Plugin Status: Enabled       ");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.GOLD + "--------------------------------");
 		}
 		
 		@Override
 		public void onDisable() {
-			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[Sex] " + ChatColor.GOLD + "-------{De Sexuele Plugin}------");
-			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[Sex] " + ChatColor.YELLOW + "     Created by: WTGConner     ");
-			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[Sex] " + ChatColor.YELLOW + "    Plugin Status: Disabled    ");
-			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[Sex] " + ChatColor.GOLD + "--------------------------------");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.GOLD + "-------{De GHGDrugs Plugin}------");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.YELLOW + "       Created by: WTGConner       ");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.YELLOW + "      Plugin Status: Disabled      ");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.GOLD + "--------------------------------");
 		}
 
 	    public void loadConfiguration(){
