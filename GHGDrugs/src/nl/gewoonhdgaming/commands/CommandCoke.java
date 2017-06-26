@@ -16,11 +16,11 @@ public class CommandCoke implements CommandExecutor {
 			if(sender instanceof Player) {
 				ItemStack stack = new ItemStack(Material.SUGAR);
 				ItemMeta meta = stack.getItemMeta();
-				meta.setDisplayName("§fCocaïne");
+				meta.setDisplayName("§f§lCocaïne");
 				stack.setItemMeta(meta);
 				((Player)sender).getInventory().addItem(stack);
 			} else {
-				sender.sendMessage("§cJe moet een dealer zijn!");
+				sender.sendMessage("§cJe moet een Dealer zijn!");
 			}
 		} else {
 			sender.sendMessage("§cGeen Rechten!");

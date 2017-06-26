@@ -45,14 +45,14 @@ public class Main extends JavaPlugin {
 		if(event.getItem() != null) {
 			if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 				if(event.getItem().getType() == Material.SUGAR) {
-					if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§fCocaïne")) {
-						event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2000, 5));
-						event.getPlayer().setWalkSpeed(0.1F);
+					if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§f§lCocaïne")) {
+						event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2000, 1800));
+						event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 5, 1800));
+						event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 1, 1800));
 						event.getPlayer().sendMessage(ChatColor.WHITE + "Je hebt zojuist Cocaïne gebruikt! " + ChatColor.RED + "Helaas ben je nu verslaafd.");
 					}
 				}
 			}
 		}
-		
 	}
 }
