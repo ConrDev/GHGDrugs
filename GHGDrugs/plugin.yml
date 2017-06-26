@@ -7,3 +7,4 @@ commands:
    coke:
       description: Gebruik dit om cocaïne te krijgen!
       aliases: [coke]
+      usage: /<command>

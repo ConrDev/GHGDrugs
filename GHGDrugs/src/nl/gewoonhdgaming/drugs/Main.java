@@ -3,6 +3,8 @@ package nl.gewoonhdgaming.drugs;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -41,15 +43,17 @@ public class Main extends JavaPlugin {
 	}
 	    
 	@EventHandler
-	public void onInteract(PlayerInteractEvent event) {
-		if(event.getItem() != null) {
-			if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-				if(event.getItem().getType() == Material.SUGAR) {
-					if(event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§f§lCocaïne")) {
-						event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2000, 1800));
-						event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 5, 1800));
-						event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 1, 1800));
-						event.getPlayer().sendMessage(ChatColor.WHITE + "Je hebt zojuist Cocaïne gebruikt! " + ChatColor.RED + "Helaas ben je nu verslaafd.");
+	public void onInteract(PlayerInteractEvent e) {
+	Player p = e.getPlayer();
+		if(e.getItem() != null) {
+			if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+				if(e.getItem().getType() == Material.SUGAR) {
+					if(e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§f§lCocaïne")) {
+						p.playSound(p.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, (float) 1, (float) 1.5);
+						p.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 2000, 1800));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 5, 1800));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 1, 1800));
+						p.sendMessage(ChatColor.WHITE + "Je hebt zojuist Cocaïne gebruikt! " + ChatColor.RED + "Helaas ben je nu verslaafd.");
 					}
 				}
 			}
