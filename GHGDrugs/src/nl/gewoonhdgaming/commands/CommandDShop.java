@@ -16,7 +16,7 @@ public class CommandDShop implements CommandExecutor {
 			if(sender instanceof Player) {
 				ItemStack stack = new ItemStack(Material.ENDER_CHEST);
 				ItemMeta meta = stack.getItemMeta();
-				meta.setDisplayName("§1§lDrugs Shop.");
+				meta.setDisplayName("§1§lDrugs Shop");
 				stack.setItemMeta(meta);
 				((Player)sender).getInventory().addItem(stack);
 			} else {

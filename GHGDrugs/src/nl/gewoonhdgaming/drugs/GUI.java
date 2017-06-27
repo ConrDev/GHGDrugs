@@ -4,76 +4,74 @@ import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-//import nl.gewoonhdgaming.commands.CommandCoke;
-
-public class GUI implements Listener {
+public class GUI {
 	
-	public static void openGUI(Player p) {
-		Inventory inv = Bukkit.createInventory(null, 9, "§1§lDrugs Shop.");
-		ItemStack cokeD = new ItemStack(Material.SUGAR);
-		ItemMeta cokemeta = cokeD.getItemMeta();
-		cokemeta.setDisplayName("§f§lCocaïne");
-		ArrayList<String> cLore = new ArrayList<String>();
-		cLore.add("§c§lLet op!");
-		cLore.add("§fJe zult gaan trippen.");
-		cokemeta.setLore(cLore);
-		cokeD.setItemMeta(cokemeta);
+	public static Inventory dShop = Bukkit.createInventory(null, 9, "§1§lDrugs Shop");
+	
+	static {
+		dShop.setItem(2, new ItemStack(Material.SUGAR, 1));
+		dShop.setItem(3, new ItemStack(Material.DOUBLE_PLANT, 3));
+	}
+	
+	public static void createDisplay(Inventory inv, int Slot, String lore) {
+		ItemStack Coke = new ItemStack(Material.SUGAR, 1);
+		ItemMeta Cokemeta = Coke.getItemMeta();
+		Cokemeta.setDisplayName("§f§lCocaïne");
+		ArrayList<String> Lore = new ArrayList<String>();
+		Lore.add("§c§lLet op!");
+		Lore.add("§fJe zult gaan trippen.");
 		
-		ItemStack weedD = new ItemStack(Material.DOUBLE_PLANT, 3);
-		ItemMeta weedmeta = weedD.getItemMeta();
-		cokemeta.setDisplayName("§a§lWeed");
-		ArrayList<String> wLore = new ArrayList<String>();
-		wLore.add("§c§lLet op!");
-		wLore.add("§fJe word " + wLore.add("§a§lHigh."));
-		weedmeta.setLore(wLore);
-		weedD.setItemMeta(weedmeta);
+		inv.setItem(2, Coke);
 		
-		inv.setItem(2, cokeD);
-		inv.setItem(3, weedD);
+		ItemStack Weed = new ItemStack(Material.DOUBLE_PLANT, 3);
+		ItemMeta Weedmeta = Weed.getItemMeta();
+		Weedmeta.setDisplayName("§a§lWeed");
+		Lore.add("§c§lLet op!");
+		Lore.add("§fJe word " + Lore.add("§a§lHigh."));
 		
-		p.openInventory(inv);
+		inv.setItem(3, Weed);
 	}
 	
 	@EventHandler
-	public void onClick(InventoryClickEvent e) {
-		if(e.getWhoClicked() instanceof Player) {
-			
-		Player p = (Player)e.getWhoClicked();
-		
-		ItemStack item = e.getCurrentItem();
-		
-		if(item.hasItemMeta()) {
-			if(e.getRawSlot() == 2) {
-				ItemStack stack = new ItemStack(Material.SUGAR);
-				ItemMeta meta = stack.getItemMeta();
-				meta.setDisplayName("§f§lCocaïne");
-				stack.setItemMeta(meta);
-				p.getInventory().addItem(stack);
-				}
-			}
+	public void onInventoryClick(InventoryClickEvent e) {
+	Player p = (Player)e.getWhoClicked();
+	ItemStack Clicked = e.getCurrentItem();
+	Inventory inv = e.getInventory();
+	//Coke Item
+	ItemStack Coke = new ItemStack(Material.SUGAR, 1);
+	ItemMeta Cokemeta = Coke.getItemMeta();
+	Cokemeta.setDisplayName("§f§lCocaïne");
+	ArrayList<String> Lore = new ArrayList<String>();
+	Lore.add("§c§lLet op!");
+	Lore.add("§fJe zult gaan trippen.");
+	//Weed Item
+	ItemStack Weed = new ItemStack(Material.SUGAR, 1);
+	ItemMeta Weedmeta = Weed.getItemMeta();
+	Weedmeta.setDisplayName("§f§lWeed");
+	Lore.add("§c§lLet op!");
+	Lore.add("§fJe word " + Lore.add("§a§lHigh."));
+	
+	//Geeft de speler Cocaïne.
+	if(inv.getName().equals(dShop.getName()));
+		if(Clicked.getType() == Material.SUGAR) {
+			e.setCancelled(true);
+			p.getInventory().addItem(new ItemStack(Coke));
+		}
+	
+	//Geef de speler Weed.
+	if(inv.getName().equals(dShop.getName()));
+		if(Clicked.getType() == Material.DOUBLE_PLANT) {
+			e.setCancelled(true);
+			p.getInventory().addItem(new ItemStack(Weed));
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
-	@EventHandler
-	public void onPunch(PlayerInteractEvent e) {
-	Player p = e.getPlayer();
-		if(p.getItemInHand().getType().equals(Material.ENDER_CHEST)) {
-			openGUI(p);
-			p.playSound(p.getLocation(), Sound.ENTITY_BAT_TAKEOFF, 10, 1);
-		} else if(p.getItemInHand().hasItemMeta() && p.getItemInHand().getItemMeta().getDisplayName().equals("Open GUI") && p.getItemInHand().getType().equals(Material.ARROW)) {
-			openGUI(p);
-			p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 10, 1);
-		}
-	}
+	
 }

@@ -24,7 +24,6 @@ public class Main extends JavaPlugin {
 			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.YELLOW + "|       Created by: WTGConner     |");
 			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.YELLOW + "|      Plugin Status:  Enabled    |");
 			Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[GHG] " + ChatColor.GOLD + "-----------------------------------");
-			getServer().getPluginManager().registerEvents(new GUI(), this);
 			getCommand("coke").setExecutor(new CommandCoke());
 			getCommand("drugsshop").setExecutor(new CommandDShop());
 		}
