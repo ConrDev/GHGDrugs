@@ -12,7 +12,7 @@ public class CommandCoke implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String level, String[] args) {
-		if(sender.hasPermission("drugs.coke")) {
+		if(sender.hasPermission("drugs.dealer")) {
 			if(sender instanceof Player) {
 				ItemStack stack = new ItemStack(Material.SUGAR);
 				ItemMeta meta = stack.getItemMeta();

@@ -5,6 +5,10 @@ author: [WTGConner]
 website: www.gewoonhdgaming.nl
 commands:
    coke:
-      description: Gebruik dit om cocaÃ¯ne te krijgen!
+      description: Gebruik dit om cocaïne te krijgen!
       aliases: [coke]
+      usage: /<command>
+   drugsshop:
+      description: Gebruik dit om de §1§lDrugs Shop §rthe krijgen!
+      aliases: [drugsshop]
       usage: /<command>
